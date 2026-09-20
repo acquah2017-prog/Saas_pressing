@@ -49,5 +49,11 @@ init_db()
 def index():
     return render_template('index.html')
 
+@app.route('/login', methods=['POST'])
+def login():
+    phone = request.form.get('phone')
+    password = request.form.get('password')
+    return render_template('index.html', message=f"Tentative de connexion reçue pour : {phone}")
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

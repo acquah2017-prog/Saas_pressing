@@ -4,9 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SaaS Pressing</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f6f9; }
+        .container { max-width: 400px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #333; }
+        input, select, button { width: 100%; padding: 10px; margin: 8px 0; box-sizing: border-box; }
+        button { background-color: #28a745; color: white; border: none; font-weight: bold; cursor: pointer; }
+        .message { color: green; text-align: center; }
+    </style>
 </head>
 <body>
-    <h1>Bienvenue sur SaaS Pressing</h1>
-    <p>Le serveur fonctionne correctement !</p>
+    <div class="container">
+        <h2>Connexion SaaS Pressing</h2>
+        {% if message %}
+            <p class="message">{{ message }}</p>
+        {% endif %}
+        <form action="/login" method="POST">
+            <label>Téléphone :</label>
+            <input type="text" name="phone" required placeholder="Ex: 07000000">
+            <label>Mot de passe :</label>
+            <input type="password" name="password" required>
+            <button type="submit">Se connecter</button>
+        </form>
+    </div>
 </body>
 </html>
